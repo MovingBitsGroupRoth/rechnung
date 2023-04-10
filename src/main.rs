@@ -1,3 +1,5 @@
+mod commands;
+
 use std::net::SocketAddr;
 
 use axum::{
@@ -59,26 +61,5 @@ mod tests {
         assert_eq!(&body[..], b"Hello, World!");
     }
 }
-
-
-mod commands;
-use crate::commands::rechnung_commands::RechnungErstellen;
-use rusty_money::{Money, iso};
-#[cfg(test)]
-mod command_tests {
-    use super::*;
-
-    #[test]
-    fn rechnung_erstellen_command() {
-        let re = RechnungErstellen {
-            rechnungs_nummer: 12,
-            betrag: Money::from_str("4000,09", iso::EUR).unwrap()
-        };
-
-        assert_eq!(re.rechnungs_nummer, 12);
-        assert_eq!(re.betrag.to_string(), "€4.000,09");
-    }
-}
-
 
 fn main() {}
