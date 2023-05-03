@@ -4,7 +4,7 @@ mod command_tests {
     use rusty_money::{Money, iso};
     use chrono::naive::NaiveDate;
 
-    use crate::commands::rechnung_commands::build_erstelle_rechnung;
+    use crate::commands::rechnung_commands::ErstelleRechnung;
 
     #[test]
     fn rechnung_erstellen_command() {
@@ -16,7 +16,7 @@ mod command_tests {
         //     betrag: Money::from_str("4009,09", iso::EUR).unwrap()
         // };
 
-        let re = build_erstelle_rechnung(
+        let re = ErstelleRechnung::new(
             String::from("RE-12"),
             datum,
             Money::from_str("4009,09", iso::EUR).unwrap()
@@ -34,5 +34,8 @@ mod command_tests {
                 re.rechnungs_datum.unwrap().month(),
                 re.rechnungs_datum.unwrap().day())
             .is_some());
+
+        println!("{}",re.to_string())
+
     }
 }

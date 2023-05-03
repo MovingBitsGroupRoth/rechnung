@@ -5,13 +5,23 @@ use chrono::naive::NaiveDate;
 pub struct ErstelleRechnung<'a> {
     pub(crate) rechnungs_nummer: String,
     pub(crate) rechnungs_datum: Option<NaiveDate>,
-    pub(crate) betrag: Money<'a, Currency>
+    pub(crate) betrag: Money<'a, Currency>,
 }
 
-pub fn build_erstelle_rechnung(rechnungs_nummer: String, rechnungs_datum: Option<NaiveDate>, betrag: Money<Currency>) -> ErstelleRechnung {
-    ErstelleRechnung {
-        rechnungs_nummer,
-        rechnungs_datum,
-        betrag,
+impl ErstelleRechnung<'_> {
+    pub fn new(rechnungs_nummer: String, rechnungs_datum: Option<NaiveDate>, betrag: Money<Currency>) -> ErstelleRechnung {
+        ErstelleRechnung {
+            rechnungs_nummer,
+            rechnungs_datum,
+            betrag,
+        }
+    }
+
+    pub fn to_string(&self) -> String {
+        // We don't want to disclose the secret
+        format!("Re-Nr({})", &self.rechnungs_nummer)
     }
 }
+
+
+
