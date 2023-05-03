@@ -19,7 +19,6 @@ impl ErstelleRechnung<'_> {
     }
 
     pub fn to_string(&self) -> String {
-        // We don't want to disclose the secret
         format!("Betrag {}\nRechnung # {}", &self.rechnungs_nummer, &self.betrag)
     }
 
