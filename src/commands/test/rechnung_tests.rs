@@ -35,7 +35,8 @@ mod command_tests {
                 re.rechnungs_datum.unwrap().day())
             .is_some());
 
-        println!("{}",re.to_string())
-
+        // TODO: Move to app somewhere
+        println!("{}",re.to_string());
+        println!("{}",re.to_string_verbose());
     }
 }
