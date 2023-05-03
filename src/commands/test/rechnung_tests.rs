@@ -4,18 +4,23 @@ mod command_tests {
     use rusty_money::{Money, iso};
     use chrono::naive::NaiveDate;
 
-    use crate::commands::rechnung_commands::ErstelleRechnung;
+    use crate::commands::rechnung_commands::build_erstelle_rechnung;
 
     #[test]
     fn rechnung_erstellen_command() {
         let datum = NaiveDate::from_ymd_opt(2023, 5, 3);
 
-        let re = ErstelleRechnung {
-            rechnungs_nummer: String::from("RE-12"),
-            rechnungs_datum: datum,
-            betrag: Money::from_str("4009,09", iso::EUR).unwrap()
-        };
+        // let re = ErstelleRechnung {
+        //     rechnungs_nummer: String::from("RE-12"),
+        //     rechnungs_datum: datum,
+        //     betrag: Money::from_str("4009,09", iso::EUR).unwrap()
+        // };
 
+        let re = build_erstelle_rechnung(
+            String::from("RE-12"),
+            datum,
+            Money::from_str("4009,09", iso::EUR).unwrap()
+        );
 
         assert_eq!(re.rechnungs_nummer, "RE-12");
         assert_eq!(re.betrag.to_string(), "€4.009,09");
