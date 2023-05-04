@@ -2,11 +2,12 @@ use rusty_money::{Money, iso};
 use rusty_money::iso::Currency;
 use chrono::naive::NaiveDate;
 
+
 #[derive(Debug)]
 pub struct ErstelleRechnung<'a> {
-    pub(crate) rechnungs_nummer: String,
-    pub(crate) rechnungs_datum: Option<NaiveDate>,
-    pub(crate) betrag: Money<'a, Currency>,
+    pub rechnungs_nummer: String,
+    pub rechnungs_datum: Option<NaiveDate>,
+    pub betrag: Money<'a, Currency>,
 }
 
 impl ErstelleRechnung<'_> {
@@ -23,9 +24,6 @@ impl ErstelleRechnung<'_> {
     }
 
     pub fn to_string_verbose(&self) -> String {
-        format!("{:?}", &self )
+        format!("{:?}", &self)
     }
 }
-
-
-
