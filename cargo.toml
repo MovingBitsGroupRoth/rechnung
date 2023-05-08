@@ -19,3 +19,6 @@ chrono = "0.4.24"
 
 [dev-dependencies]
 tower = { version = "0.4", features = ["util"] }
+
+[profile.release]
+panic = 'abort'
