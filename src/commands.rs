@@ -1,2 +1,1 @@
-mod rechnung_commands;
-mod rechnung_commands_tests;
+mod erstelle_rechnung_command;
