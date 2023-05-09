@@ -1,7 +1,16 @@
-# bacon
+# Was?
 
-https://dystroy.org/bacon/
+Meine Coding Katas um Rust zu lernen
 
-bacon
+## Ziele 
 
-bacon test
+- Rechnung mit Rust neu implementieren
+- CQRS
+- BDD
+
+## Mittelfristig
+
+- WASI
+- CI/CD: Tekton / Flux
+- Kafka
+- Istio mTLS

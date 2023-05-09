@@ -20,3 +20,11 @@ RUST_BACKTRACE=1
 == Dependencies Docs
 
 cargo doc --open
+
+== bacon
+
+https://dystroy.org/bacon/
+
+bacon
+
+bacon test
