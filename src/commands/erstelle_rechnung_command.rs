@@ -29,20 +29,14 @@ impl<'a> ErstelleRechnungMitGrunddaten<'a> {
 
 #[cfg(test)]
 mod tests {
+    use super::*;
+
     use rusty_money::{Money, iso};
     use chrono::{Datelike, naive::NaiveDate};
-
-    use crate::commands::erstelle_rechnung_command::ErstelleRechnungMitGrunddaten;
 
     #[test]
     fn erstelle_rechnung_command_test() {
         let datum = NaiveDate::from_ymd_opt(2023, 5, 3);
-
-        // let re = ErstelleRechnung {
-        //     rechnungs_nummer: String::from("RE-12"),
-        //     rechnungs_datum: datum,
-        //     betrag: Money::from_str("4009,09", iso::EUR).unwrap()
-        // };
 
         let re = ErstelleRechnungMitGrunddaten::new(
             String::from("RE-12"),
@@ -52,8 +46,6 @@ mod tests {
 
         assert_eq!("RE-12", re.rechnungs_nummer);
         assert_eq!("€4.009,09", re.betrag.to_string());
-
-        // assert_eq!(re.datum.to_string(), "34");
 
         let from_ymd_opt = NaiveDate::from_ymd_opt;
 
