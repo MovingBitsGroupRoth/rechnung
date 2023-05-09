@@ -32,7 +32,7 @@ mod tests {
     use rusty_money::{Money, iso};
     use chrono::{Datelike, naive::NaiveDate};
 
-    use crate::commands::erstelle_rechnung_command::ErstelleRechnungMitGrunddaten as erstelle_rechnung_command;
+    use crate::commands::erstelle_rechnung_command::ErstelleRechnungMitGrunddaten;
 
     #[test]
     fn erstelle_rechnung_command_test() {
@@ -44,7 +44,7 @@ mod tests {
         //     betrag: Money::from_str("4009,09", iso::EUR).unwrap()
         // };
 
-        let re = erstelle_rechnung_command::new(
+        let re = ErstelleRechnungMitGrunddaten::new(
             String::from("RE-12"),
             datum,
             Money::from_str("4009,09", iso::EUR).unwrap()
