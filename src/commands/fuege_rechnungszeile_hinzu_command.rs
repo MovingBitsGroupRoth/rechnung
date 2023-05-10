@@ -44,7 +44,9 @@ mod tests {
 
         zeilen.push(zeile);
 
-        assert_eq!("artikel1", zeilen.get(0).unwrap().artikel);
+        let artikel = &zeilen[0].artikel;
+
+        assert_eq!("artikel1", artikel);
 
     }
 }
