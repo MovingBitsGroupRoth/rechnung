@@ -27,6 +27,7 @@ impl FuegeRechnungszeileHinzu<'_> {
 
 #[cfg(test)]
 mod tests {
+    use std::process;
     use super::*;
 
     use rusty_money::{Money, iso};
@@ -43,8 +44,9 @@ mod tests {
         let validiere_artikelname_laenge_groesser_2 = |artikel_name: &String| artikel_name.len() > 2; // Encapsulate in Validator-Enum
 
         if(!validiere_artikelname_laenge_groesser_2(&zeile.artikel)){
-            // Soften this :D ... panic is way too harsh here -> implement Meldungssammler
-            panic!("Artikelname muss mind. 2 Zeichen lang sein")
+            // Soften this :D ... panic + exit is way too harsh here -> implement unwrap_or_else + Meldungssammler
+            panic!("Artikelname muss mind. 2 Zeichen lang sein");
+            process::exit(1) // :D
         }
 
         let mut zeilen: Vec<FuegeRechnungszeileHinzu> = vec![];
