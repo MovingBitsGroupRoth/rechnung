@@ -1,0 +1,5 @@
+= A
+
+== Vertical Slices
+
+image::img/vertical_slices_architecture.png[]
